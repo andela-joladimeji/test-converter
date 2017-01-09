@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="converter">
+
+<head>
+  <title></title>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div ng-controller="converterCtrl" ng-init="fetchRatesWithBaseUSD()">
+    <p>SELECT CURRENCY FROM USD RATES</p>
+    <select ng-model="selectedCurrency" ng-options="key for (key, value) in rates">
+    </select>
+    <form>
+      <input type="text" ng-model="amount">
+      <button ng-click="convertCurrency(amount)">Do Conversion to USD</button>
+    </form>
+    <input type="text" ng-model="convertedAmount" ng-if="convertedAmount">
+  </div>
+  <script src="./bower_components/angular/angular.min.js"></script>
+  <script src="./app.js"></script>
+  <script src="./scripts/services/converter-service.js"></script>
+  <script src="./scripts/controllers/converter-controller.js"></script>
+</body>
+
+</html>
